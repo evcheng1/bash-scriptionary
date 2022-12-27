@@ -22,13 +22,11 @@
         top: 0;
         position: -webkit-sticky;
         position: sticky;
-        top: 0;
         height: 46px;
         z-index: 1;
-        border-radius: 1px;
+        border-radius: 8px;
         border-color: #abb2bf;
         border-style: solid;
-        z-index: 1;
     }
 
     .navbar a {
