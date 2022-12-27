@@ -1,16 +1,18 @@
 <template>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="navbar">
-    <a href="javascript: void(0)">Control Flow</a>
-    <a href="javascript: void(0)">Declaration</a>
-        <div class="dropdown">
-            <button class="dropbtn">Expression
-            </button>
-            <div class="dropdown-content">
-                <div class="statement">Link 1</div>
-                <div class="statement">Link 2</div>
-                <div class="statement">Link 3</div>
+        <a href="javascript: void(0)">Control Flow</a>
+        <a href="javascript: void(0)">Declaration</a>
+            <div class="dropdown">
+                <button class="dropbtn">Expression
+                </button>
+                <div class="dropdown-content">
+                    <div class="statement">Link 1</div>
+                    <div class="statement">Link 2</div>
+                    <div class="statement">Link 3</div>
+                </div>
             </div>
-        </div>
+        <a href="javascript: void(0)" id="download-btn"><i class="fa fa-download"></i> Download</a>
     </div>
 </template>
 
@@ -21,7 +23,7 @@
         position: -webkit-sticky;
         position: sticky;
         top: 0;
-        height: 48px;
+        height: 46px;
         z-index: 1;
         border-radius: 1px;
         border-color: #abb2bf;
@@ -46,7 +48,7 @@
         font-size: 16px;
         border: none;
         outline: none;
-        color: #abb2bf;
+        color: white;
         padding: 14px 16px;
         background-color: inherit;
         font-family: inherit;
@@ -87,5 +89,9 @@
     .statement:hover {
         color: #7d8799;
         background-color: #282c34;
+    }
+
+    #download-btn {
+        float: right
     }
 </style>
