@@ -3,6 +3,7 @@
     <codemirror
         v-model="code"
         :extensions="extensions"
+        :style="{ fontSize: '16px' }"
     />
     <button id="scroll-btn" title="Go to top"><i class="fa fa-arrow-circle-o-up"></i></button>
 </template>
