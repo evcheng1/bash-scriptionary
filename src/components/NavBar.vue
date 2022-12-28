@@ -16,6 +16,28 @@
     </div>
 </template>
 
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        let downloadBtn = document.getElementById("download-btn");
+
+        function downloadScript() {
+            const scriptContent = document.getElementsByClassName("cm-content")[0].innerText;
+            const filename = 'scriptomata.sh'
+            const element = document.createElement('a');
+
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(scriptContent));
+            element.setAttribute('download', filename);
+
+            element.style.display = 'none';
+	        document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+
+        downloadBtn.addEventListener("click", downloadScript);
+    });
+</script>
+
 <style scoped>
     .navbar {
         background-color: #333;

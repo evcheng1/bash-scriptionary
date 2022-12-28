@@ -34,25 +34,25 @@
     }
   })
 
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
+  function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+  }
 
-    window.addEventListener('DOMContentLoaded', () => {
-        let scrollBtn = document.getElementById("scroll-btn");
-        window.onscroll = function() {scrollFunction()};
+  window.addEventListener('DOMContentLoaded', () => {
+      let scrollBtn = document.getElementById("scroll-btn");
+      window.onscroll = function() {scrollFunction()};
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 48 || document.documentElement.scrollTop > 48) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
-            }
-        }
+      function scrollFunction() {
+          if (document.body.scrollTop > 48 || document.documentElement.scrollTop > 48) {
+              scrollBtn.style.display = "block";
+          } else {
+              scrollBtn.style.display = "none";
+          }
+      }
 
-        scrollBtn.addEventListener("click", topFunction);
-    });
+      scrollBtn.addEventListener("click", topFunction);
+  });
 </script>
 
 <style scoped>
