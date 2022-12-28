@@ -85,7 +85,7 @@
     }
 
     .statement:hover {
-        color: #7d8799;
+        color: #abb2bf;
         background-color: #282c34;
     }
 
