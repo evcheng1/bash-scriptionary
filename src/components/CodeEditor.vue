@@ -3,7 +3,7 @@
     <codemirror
         v-model="code"
         :extensions="extensions"
-        :style="{ fontSize: '16px' }"
+        :style="{ fontSize: '20px', width: '100%'}"
     />
     <button id="scroll-btn" title="Go to top"><i class="fa fa-arrow-circle-o-up"></i></button>
 </template>
@@ -18,7 +18,8 @@
       Codemirror
     },
     setup() {
-      const code = ref(`#!/bin/bash\n\n`)
+      const emptyLine = '\n'
+      const code = ref(`#!/bin/bash${emptyLine.repeat(29)}`)
       const extensions = [oneDark]
 
       const view = shallowRef()
@@ -56,26 +57,25 @@
 </script>
 
 <style scoped>
-    #scroll-btn {
-        display: none;
-        position: fixed;
-        bottom: 16px;
-        right: 24px;
-        z-index: 99;
-        border: none;
-        outline: none;
-        background-color: #333;
-        color: white;
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 4px;
-        border-color: #abb2bf;
-        border-style: solid;
-        font-size: 24px;
-    }
+  #scroll-btn {
+      display: none;
+      position: fixed;
+      bottom: 16px;
+      right: 24px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 4px;
+      border-color: #abb2bf;
+      border-style: solid;
+      font-size: 20px;
+  }
 
-    #scroll-btn:hover {
-        background-color: #555;
-    }
-
+  #scroll-btn:hover {
+      background-color: #555;
+  }
 </style>

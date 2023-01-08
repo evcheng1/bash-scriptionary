@@ -1,17 +1,33 @@
 <template>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="navbar">
-        <a href="javascript: void(0)">Control Flow</a>
-        <a href="javascript: void(0)">Declaration</a>
-            <div class="dropdown">
-                <button class="dropbtn">Expression
-                </button>
-                <div class="dropdown-content">
-                    <div class="statement">Link 1</div>
-                    <div class="statement">Link 2</div>
-                    <div class="statement">Link 3</div>
-                </div>
+        <div class="dropdown">
+            <button class="dropbtn">Control Flow
+            </button>
+            <div class="dropdown-content">
+                <div class="statement">Link 1</div>
+                <div class="statement">Link 2</div>
+                <div class="statement">Link 3</div>
             </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Declaration
+            </button>
+            <div class="dropdown-content">
+                <div class="statement">Link 1</div>
+                <div class="statement">Link 2</div>
+                <div class="statement">Link 3</div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Expression
+            </button>
+            <div class="dropdown-content">
+                <div class="statement">Link 1</div>
+                <div class="statement">Link 2</div>
+                <div class="statement">Link 3</div>
+            </div>
+        </div>
         <a href="javascript: void(0)" id="download-btn"><i class="fa fa-download"></i> Download</a>
     </div>
 </template>
@@ -53,7 +69,7 @@
 
     .navbar a {
         float: left;
-        font-size: 16px;
+        font-size: 20px;
         color: white;
         text-align: center;
         padding: 14px 16px;
@@ -65,7 +81,7 @@
     }
 
     .dropdown .dropbtn {
-        font-size: 16px;
+        font-size: 20px;
         border: none;
         outline: none;
         color: white;
