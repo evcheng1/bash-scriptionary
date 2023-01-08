@@ -30,8 +30,8 @@
 
 <script>
     const controlFlowStatements = [
-        ["if", "foo = 1\nhello world"],
-        ["else", "bar = 2"]
+        ["if", `if [[ $FOO ]]; then\nfi`],
+        ["else if", `elif [[ $BAR ]]; then`]
     ]
 
     const declarationStatements = [
