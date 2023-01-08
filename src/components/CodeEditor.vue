@@ -5,6 +5,7 @@
         :extensions="extensions"
         :style="{ fontSize: '20px', width: '100%'}"
     />
+    <div id="code-checker">Code is Good</div>
     <button id="scroll-btn" title="Go to top"><i class="fa fa-arrow-circle-o-up"></i></button>
 </template>
 
@@ -12,6 +13,12 @@
   import { defineComponent, ref, shallowRef } from 'vue'
   import { Codemirror } from 'vue-codemirror'
   import { oneDark } from '@codemirror/theme-one-dark'
+
+  const CodeCheckerStatus = {
+    CodeGood: 0,
+    CheckingCode: 1,
+    CodeHasError: 3
+  }
 
   export default defineComponent({
     components: {
@@ -27,10 +34,38 @@
         view.value = payload.view
       }
 
+      const codeStatus = CodeCheckerStatus.CodeGood
+
       return {
         code,
         extensions,
         handleReady,
+        codeStatus
+      }
+    },
+    methods: {
+      callSyntaxLambdaFunction: function () {
+        this.codeStatus = CodeCheckerStatus.CodeGood
+
+        let codeChecker = document.getElementById("code-checker");
+        codeChecker.setAttribute("style","border-color:green");
+        codeChecker.innerText = "Code is Good"
+      }
+    },
+    watch: {
+      code: function(val, oldVal) {
+        if (this.codeStatus === CodeCheckerStatus.CheckingCode) {
+          return
+        }
+        else {
+          this.codeStatus = CodeCheckerStatus.CheckingCode
+
+          let codeChecker = document.getElementById("code-checker");
+          codeChecker.setAttribute("style","border-color:orange");
+          codeChecker.innerText = "Checking Code..."
+
+          setTimeout(this.callSyntaxLambdaFunction, 5000);
+        }
       }
     }
   })
@@ -60,7 +95,7 @@
   #scroll-btn {
       display: none;
       position: fixed;
-      bottom: 16px;
+      bottom: 24px;
       right: 24px;
       z-index: 99;
       border: none;
@@ -77,5 +112,22 @@
 
   #scroll-btn:hover {
       background-color: #555;
+  }
+
+  #code-checker {
+    position: fixed;
+    bottom: 24px;
+    left: 48px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    border-color: green;
+    border-style: solid;
+    font-size: 20px;
   }
 </style>
