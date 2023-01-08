@@ -60,7 +60,7 @@
         top: 0;
         position: -webkit-sticky;
         position: sticky;
-        height: 46px;
+        height: 50px;
         z-index: 1;
         border-radius: 8px;
         border-color: #abb2bf;
