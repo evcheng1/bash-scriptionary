@@ -1,31 +1,27 @@
 <template>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="navbar">
-        <div class="dropdown">
-            <button class="dropbtn">Control Flow
+        <div class="dropdown" v-for="category in categories">
+            <button class="dropbtn">
+                {{ category.name }}
             </button>
             <div class="dropdown-content">
-                <div class="statement">Link 1</div>
-                <div class="statement">Link 2</div>
-                <div class="statement">Link 3</div>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Declaration
-            </button>
-            <div class="dropdown-content">
-                <div class="statement">Link 1</div>
-                <div class="statement">Link 2</div>
-                <div class="statement">Link 3</div>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Expression
-            </button>
-            <div class="dropdown-content">
-                <div class="statement">Link 1</div>
-                <div class="statement">Link 2</div>
-                <div class="statement">Link 3</div>
+                <div
+                    class="statement"
+                    v-for="(item, idx) in category.codeSnippets"
+                    @mouseenter="hoveredElement = idx"
+                    @mouseleave="hoveredElement = -1"
+                >
+                    <div v-if="hoveredElement !== idx">
+                        {{ item[0] }}
+                    </div>
+                    <div v-if="hoveredElement === idx" id="{{ idx }}">
+                        {{ item[1] }}
+                        <button v-on:click="copyCode(item[1])" id="copy-btn">
+                            <i class="fa fa-clipboard"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <a href="javascript: void(0)" id="download-btn"><i class="fa fa-download"></i> Download</a>
@@ -33,6 +29,48 @@
 </template>
 
 <script>
+    const controlFlowStatements = [
+        ["if", "foo = 1\nhello world"],
+        ["else", "bar = 2"]
+    ]
+
+    const declarationStatements = [
+        ["if", "foo = 1\nhello world"],
+        ["else", "bar = 2"]
+    ]
+
+    const expressionStatements = [
+        ["if", "foo = 1\nhello world"],
+        ["else", "bar = 2"]
+    ]
+
+    export default {
+        methods: {
+            copyCode: function (codeSnippet) {
+                navigator.clipboard.writeText(codeSnippet)
+            }
+        },
+        data() {
+            return {
+                hoveredElement: -1,
+                categories: [
+                    {
+                        name: "Control Flow",
+                        codeSnippets: controlFlowStatements
+                    },
+                    {
+                        name: "Declaration",
+                        codeSnippets: declarationStatements
+                    },
+                    {
+                        name: "Expression",
+                        codeSnippets: expressionStatements
+                    },
+                ]
+            }
+        }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
         let downloadBtn = document.getElementById("download-btn");
 
@@ -112,6 +150,7 @@
         text-decoration: none;
         display: block;
         text-align: left;
+        font-size: 20px;
     }
 
     .dropdown-content a:hover {
@@ -125,9 +164,14 @@
     .statement:hover {
         color: #abb2bf;
         background-color: #282c34;
+        white-space: pre-wrap;
     }
 
     #download-btn {
+        float: right
+    }
+
+    #copy-btn {
         float: right
     }
 </style>
