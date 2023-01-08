@@ -107,7 +107,7 @@
       border-radius: 4px;
       border-color: #abb2bf;
       border-style: solid;
-      font-size: 20px;
+      font-size: 24px;
   }
 
   #scroll-btn:hover {
