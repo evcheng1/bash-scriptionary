@@ -5,8 +5,7 @@
         :extensions="extensions"
         :style="{ fontSize: '20px', width: '100%'}"
     />
-    <div id="code-checker">Code is Good</div>
-    <button id="scroll-btn" title="Go to top"><i class="fa fa-arrow-circle-o-up"></i></button>
+    <div id="code-checker">Code looks Good</div>
 </template>
 
 <script>
@@ -26,7 +25,7 @@
     },
     setup() {
       const emptyLine = '\n'
-      const code = ref(`#!/bin/bash${emptyLine.repeat(29)}`)
+      const code = ref(`#!/bin/bash${emptyLine.repeat(2)}`)
       const extensions = [oneDark]
 
       const view = shallowRef()
@@ -69,51 +68,9 @@
       }
     }
   })
-
-  function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-  }
-
-  window.addEventListener('DOMContentLoaded', () => {
-      let scrollBtn = document.getElementById("scroll-btn");
-      window.onscroll = function() {scrollFunction()};
-
-      function scrollFunction() {
-          if (document.body.scrollTop > 48 || document.documentElement.scrollTop > 48) {
-              scrollBtn.style.display = "block";
-          } else {
-              scrollBtn.style.display = "none";
-          }
-      }
-
-      scrollBtn.addEventListener("click", topFunction);
-  });
 </script>
 
 <style scoped>
-  #scroll-btn {
-      display: none;
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 99;
-      border: none;
-      outline: none;
-      background-color: #333;
-      color: white;
-      cursor: pointer;
-      padding: 8px;
-      border-radius: 4px;
-      border-color: #abb2bf;
-      border-style: solid;
-      font-size: 24px;
-  }
-
-  #scroll-btn:hover {
-      background-color: #555;
-  }
-
   #code-checker {
     position: fixed;
     bottom: 24px;
