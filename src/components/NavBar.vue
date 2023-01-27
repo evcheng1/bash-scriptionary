@@ -24,6 +24,7 @@
                 </div>
             </div>
         </div>
+        <div id="title">Scriptionary</div>
         <a href="javascript: void(0)" id="download-btn"><i class="fa fa-download"></i> Download</a>
     </div>
 </template>
@@ -106,7 +107,6 @@
     }
 
     .navbar a {
-        float: left;
         font-size: 20px;
         color: white;
         text-align: center;
@@ -170,6 +170,17 @@
 
     #download-btn {
         float: right
+    }
+
+    #title {
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: -1;
     }
 
     #copy-btn {
