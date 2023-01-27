@@ -80,7 +80,7 @@
     outline: none;
     background-color: #333;
     color: white;
-    cursor: pointer;
+    cursor: default;
     padding: 8px;
     border-radius: 4px;
     border-color: green;
