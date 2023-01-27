@@ -76,7 +76,7 @@
 
         function downloadScript() {
             const scriptContent = document.getElementsByClassName("cm-content")[0].innerText;
-            const filename = 'scriptomata.sh'
+            const filename = 'scriptionary.sh'
             const element = document.createElement('a');
 
             element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(scriptContent));
