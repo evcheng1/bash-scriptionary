@@ -5,7 +5,7 @@
         :extensions="extensions"
         :style="{ fontSize: '20px', width: '100%'}"
     />
-    <div id="code-checker">Code looks Good</div>
+    <div id="code-checker">Code looks good</div>
 </template>
 
 <script>
@@ -48,7 +48,7 @@
 
         let codeChecker = document.getElementById("code-checker");
         codeChecker.setAttribute("style","border-color:green");
-        codeChecker.innerText = "Code is Good"
+        codeChecker.innerText = "Code looks good"
       }
     },
     watch: {
