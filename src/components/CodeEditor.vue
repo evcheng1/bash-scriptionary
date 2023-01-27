@@ -74,7 +74,7 @@
   #code-checker {
     position: fixed;
     bottom: 24px;
-    left: 48px;
+    left: 24px;
     z-index: 99;
     border: none;
     outline: none;
