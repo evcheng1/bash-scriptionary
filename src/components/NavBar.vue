@@ -139,13 +139,12 @@
         position: absolute;
         background-color: #abb2bf;
         min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        box-shadow: 0px 0px 4px 0px #abb2bf;
         z-index: 1;
         padding-top: 2px;
     }
 
     .dropdown-content .statement {
-        float: none;
         color: black;
         padding: 12px 16px;
         text-decoration: none;
