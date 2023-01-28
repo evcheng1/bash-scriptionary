@@ -16,8 +16,8 @@
                         {{ item[0] }}
                     </div>
                     <div v-if="hoveredElement === idx" id="{{ idx }}">
-                        {{ item[1] }}
-                        <button v-on:click="copyCode(item[1])" id="copy-btn">
+                        <div class="snippet">{{ item[1] }}</div>
+                        <button v-on:click="copyCode(item[1])" id="copy-btn" class="element">
                             <i class="fa fa-clipboard"></i>
                         </button>
                     </div>
@@ -129,6 +129,10 @@
         margin: 0;
     }
 
+    .snippet {
+        display: inline-block;
+    }
+
     .navbar a:hover, .dropdown:hover .dropbtn {
         background-color: #abb2bf;
         color: black;
@@ -184,6 +188,7 @@
     }
 
     #copy-btn {
-        float: right
+        margin-left: 24px;
+        float: right;
     }
 </style>
