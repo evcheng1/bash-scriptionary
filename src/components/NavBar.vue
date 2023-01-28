@@ -15,7 +15,7 @@
                     <div v-if="hoveredElement !== idx">
                         {{ item[0] }}
                     </div>
-                    <div v-if="hoveredElement === idx" id="{{ idx }}">
+                    <div v-if="hoveredElement === idx" id="{{ idx }}" class="code">
                         <div class="snippet">{{ item[1] }}</div>
                         <button v-on:click="copyCode(item[1])" id="copy-btn" class="element">
                             <i class="fa fa-clipboard"></i>
@@ -152,7 +152,6 @@
         color: black;
         padding: 12px 16px;
         text-decoration: none;
-        display: block;
         text-align: left;
         font-size: 20px;
     }
@@ -187,8 +186,12 @@
         cursor: default;
     }
 
+    .code {
+        display: flex;
+        align-items: center;
+    }
+
     #copy-btn {
         margin-left: 24px;
-        float: right;
     }
 </style>
