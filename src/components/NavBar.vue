@@ -1,14 +1,14 @@
 <template>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="navbar">
-        <div class="dropdown" v-for="category in categories">
+        <div class="dropdown" v-for="category in samples">
             <button class="dropbtn">
                 {{ category.name }}
             </button>
             <div class="dropdown-content">
                 <div
                     class="statement"
-                    v-for="(item, idx) in category.codeSnippets"
+                    v-for="(item, idx) in category.snippets"
                     @mouseenter="hoveredElement = idx"
                     @mouseleave="hoveredElement = -1"
                 >
@@ -30,20 +30,7 @@
 </template>
 
 <script>
-    const controlFlowStatements = [
-        ["if", `if [[ $FOO ]]; then\nfi`],
-        ["else if", `elif [[ $BAR ]]; then`]
-    ]
-
-    const declarationStatements = [
-        ["if", "foo = 1\nhello world"],
-        ["else", "bar = 2"]
-    ]
-
-    const expressionStatements = [
-        ["if", "foo = 1\nhello world"],
-        ["else", "bar = 2"]
-    ]
+    import samples from "./assets/samples.json"
 
     export default {
         methods: {
@@ -51,23 +38,13 @@
                 navigator.clipboard.writeText(codeSnippet)
             }
         },
+        mounted() {
+            this.samples = samples
+        },
         data() {
             return {
                 hoveredElement: -1,
-                categories: [
-                    {
-                        name: "Control Flow",
-                        codeSnippets: controlFlowStatements
-                    },
-                    {
-                        name: "Declaration",
-                        codeSnippets: declarationStatements
-                    },
-                    {
-                        name: "Expression",
-                        codeSnippets: expressionStatements
-                    },
-                ]
+                samples,
             }
         }
     }
@@ -94,5 +71,5 @@
 </script>
 
 <style>
-  @import './style/navbar.css';
+  @import './assets/style/navbar.css';
 </style>

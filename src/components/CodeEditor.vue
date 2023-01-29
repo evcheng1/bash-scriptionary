@@ -71,5 +71,5 @@
 </script>
 
 <style>
-  @import './style/codeEditor.css';
+  @import './assets/style/codeEditor.css';
 </style>

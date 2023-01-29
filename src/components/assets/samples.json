@@ -1,0 +1,23 @@
+{
+    "ControlFlow": {
+        "name": "Control Flow",
+        "snippets": [
+            ["if", "if [[ $FOO ]]; then\nfi"],
+            ["else if", "elif [[ $BAR ]]; then"]
+        ]
+    },
+    "Declaration": {
+        "name": "Declaration",
+        "snippets": [
+            ["if", "if [[ $FOO ]]; then\nfi"],
+            ["else if", "elif [[ $BAR ]]; then"]
+        ]
+    },
+    "Expression": {
+        "name": "Expression",
+        "snippets": [
+            ["if", "if [[ $FOO ]]; then\nfi"],
+            ["else if", "elif [[ $BAR ]]; then"]
+        ]
+    }
+}
