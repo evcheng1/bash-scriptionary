@@ -70,21 +70,6 @@
   })
 </script>
 
-<style scoped>
-  #code-checker {
-    position: fixed;
-    bottom: 24px;
-    left: 24px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background-color: #333;
-    color: white;
-    cursor: default;
-    padding: 8px;
-    border-radius: 4px;
-    border-color: green;
-    border-style: solid;
-    font-size: 20px;
-  }
+<style>
+  @import './style/codeEditor.css';
 </style>

@@ -7,6 +7,3 @@
     <NavBar />
     <CodeEditor />
 </template>
-
-<style scoped>
-</style>
