@@ -1,10 +1,11 @@
 {
-  "name": "scriptionary_api",
+  "name": "api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node server.bundle.js",
+    "build": "webpack",
+    "dev": "nodemon ./server.js localhost 3080"
   },
   "keywords": [],
   "author": "",
