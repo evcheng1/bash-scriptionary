@@ -1,5 +1,6 @@
 <template>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <NavBar />
     <codemirror
         v-model="code"
         :extensions="extensions"
@@ -13,11 +14,13 @@
   import { Codemirror } from 'vue-codemirror'
   import { oneDark } from '@codemirror/theme-one-dark'
   import CodeChecker from './CodeChecker.vue'
+  import NavBar from './NavBar.vue'
 
   export default defineComponent({
     components: {
       Codemirror,
-      CodeChecker
+      CodeChecker,
+      NavBar
     },
     setup() {
       const emptyLine = '\n'
