@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div id="title">Scriptionary</div>
+        <div id="title">Bash Scriptionary</div>
         <a href="javascript: void(0)" id="download-btn"><i class="fa fa-download"></i> Download</a>
     </div>
 </template>

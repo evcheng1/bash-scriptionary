@@ -5,23 +5,19 @@
         :extensions="extensions"
         :style="{ fontSize: '20px', width: '100%'}"
     />
-    <div id="code-checker">Code looks good</div>
+    <CodeChecker :code="code" ref="codeChecker"/>
 </template>
 
 <script>
   import { defineComponent, ref, shallowRef } from 'vue'
   import { Codemirror } from 'vue-codemirror'
   import { oneDark } from '@codemirror/theme-one-dark'
-
-  const CodeCheckerStatus = {
-    CodeGood: 0,
-    CheckingCode: 1,
-    CodeHasError: 3
-  }
+  import CodeChecker from './CodeChecker.vue'
 
   export default defineComponent({
     components: {
-      Codemirror
+      Codemirror,
+      CodeChecker
     },
     setup() {
       const emptyLine = '\n'
@@ -33,38 +29,10 @@
         view.value = payload.view
       }
 
-      const codeStatus = CodeCheckerStatus.CodeGood
-
       return {
         code,
         extensions,
-        handleReady,
-        codeStatus
-      }
-    },
-    methods: {
-      callSyntaxLambdaFunction: function () {
-        this.codeStatus = CodeCheckerStatus.CodeGood
-
-        let codeChecker = document.getElementById("code-checker");
-        codeChecker.setAttribute("style","border-color:green");
-        codeChecker.innerText = "Code looks good"
-      }
-    },
-    watch: {
-      code: function(val, oldVal) {
-        if (this.codeStatus === CodeCheckerStatus.CheckingCode) {
-          return
-        }
-        else {
-          this.codeStatus = CodeCheckerStatus.CheckingCode
-
-          let codeChecker = document.getElementById("code-checker");
-          codeChecker.setAttribute("style","border-color:orange");
-          codeChecker.innerText = "Checking Code..."
-
-          setTimeout(this.callSyntaxLambdaFunction, 5000);
-        }
+        handleReady
       }
     }
   })
