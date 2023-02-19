@@ -14,12 +14,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.text())
 
-app.post('/check', (req, res) => {
+app.post('/api/validate', (req, res) => {
     const body = req.body;
     const filename = "/tmp/script.sh";
     fs.writeFile(filename, body, function(err) {
         if(err) {
-            // return console.log(err);
+            console.error(err);
+            res.send("");
         } else {
             console.log("The file was saved!");
 
@@ -34,8 +35,9 @@ app.post('/check', (req, res) => {
                     let errorMsg = processedLines.join('\n');
                     res.send(errorMsg);
                     return;
+                } else {
+                    res.send("")
                 }
-                res.send("")
             });
         }
     });

@@ -1,12 +1,12 @@
 <template>
-    <div id="code-checker" :style="{ borderColor: getColor}"> {{ codeStatus }} </div>
+    <div id="code-checker" :style="{ borderColor: getColor}"> {{ statusDisplay }} </div>
 </template>
 
 <script>
     const CodeCheckerStatus = {
-        CodeGood: "Code looks good",
-        CheckingCode: "Checking Code...",
-        CodeHasError: "Code has error"
+        CodeGood: 0,
+        CheckingCode: 1,
+        CodeHasError: 2
     };
 
     export default {
@@ -19,6 +19,16 @@
                 } else {
                     return "red";
                 }
+            },
+
+            statusDisplay: function() {
+                if (this.codeStatus === CodeCheckerStatus.CodeGood) {
+                    return "Code looks good"
+                } else if (this.codeStatus === CodeCheckerStatus.CheckingCode) {
+                    return "Checking Code..."
+                } else {
+                    return this.errorMsg
+                }
             }
         },
         props: {
@@ -26,7 +36,8 @@
         },
         data() {
             return {
-                codeStatus: CodeCheckerStatus.CodeGood
+                codeStatus: CodeCheckerStatus.CodeGood,
+                errorMsg: ""
             }
         },
         watch: {
@@ -36,13 +47,25 @@
                 }
                 else {
                     this.codeStatus = CodeCheckerStatus.CheckingCode;
-                    setTimeout(this.checkCode, 3000);
+                    setTimeout(this.validateCode, 3000);
                 }
             }
         },
         methods: {
-            checkCode: function(code) {
-                this.codeStatus = CodeCheckerStatus.CodeGood;
+            async validateCode() {
+                const response = await fetch(`/api/validate`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'text/plain'},
+                    body: this.code
+                })
+
+                const result = await response.text()
+                if (result.length === 0) {
+                    this.codeStatus = CodeCheckerStatus.CodeGood
+                } else {
+                    this.codeStatus = CodeCheckerStatus.CodeHasError
+                    this.errorMsg = result
+                }
             }
         }
     }
