@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { exec } = require("child_process");
@@ -12,6 +13,7 @@ app.use(cors());
 // Configuring body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../ui/dist')))
 app.use(express.text())
 
 app.post('/api/validate', (req, res) => {
@@ -41,6 +43,10 @@ app.post('/api/validate', (req, res) => {
             });
         }
     });
+});
+
+app.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname, '../ui/build/index.html'));
 });
 
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));

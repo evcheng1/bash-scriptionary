@@ -2,22 +2,28 @@
     "ControlFlow": {
         "name": "Control Flow",
         "snippets": [
-            ["if", "if [[ $FOO ]]; then\nfi"],
-            ["else if", "elif [[ $BAR ]]; then"]
+            ["if", "if [[ $VAR1 ]]; then\nfi"],
+            ["else if", "elif [[ $VAR2 ]]; then"],
+            ["for loop", "for i in $VAR; do\ndone"]
         ]
     },
     "Declaration": {
         "name": "Declaration",
         "snippets": [
-            ["if", "if [[ $FOO ]]; then\nfi"],
-            ["else if", "elif [[ $BAR ]]; then"]
+            ["function", "myfunc() {\n}"],
+            ["variable", "var=\"value\""],
+            ["array", "Values=('val1' 'val2' 'val3')"],
+            ["dictionary", "declare -A dictionaryName"]
         ]
     },
-    "Expression": {
-        "name": "Expression",
+    "Conditional": {
+        "name": "Conditional",
         "snippets": [
-            ["if", "if [[ $FOO ]]; then\nfi"],
-            ["else if", "elif [[ $BAR ]]; then"]
+            ["equal", "[[ $VAR -eq $VAR ]]"],
+            ["not equal", "[[ $VAR -ne $VAR ]]"],
+            ["less than", "[[ $VAR -lt $VAR ]]"],
+            ["greater than", "[[ $VAR -gt $VAR ]]"],
+            ["Regexp", "[[ $VAR =~ $VAR ]]"]
         ]
     }
 }
