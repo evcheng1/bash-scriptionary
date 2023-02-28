@@ -50,6 +50,7 @@
     box-shadow: 0px 0px 4px 0px #abb2bf;
     z-index: 1;
     padding-top: 2px;
+    width: 360px;
 }
 
 .dropdown-content .statement {
@@ -96,5 +97,5 @@
 }
 
 #copy-btn {
-    margin-left: 24px;
+    margin-left: auto;
 }

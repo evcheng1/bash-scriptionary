@@ -12,7 +12,7 @@
         "snippets": [
             ["function", "myfunc() {\n}"],
             ["variable", "var=\"value\""],
-            ["array", "Values=('val1' 'val2' 'val3')"],
+            ["array", "arr=( 0 1 2 )"],
             ["dictionary", "declare -A dictionaryName"]
         ]
     },
