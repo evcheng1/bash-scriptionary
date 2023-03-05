@@ -2,28 +2,37 @@
     "ControlFlow": {
         "name": "Control Flow",
         "snippets": [
-            ["if", "if [[ $VAR1 ]]; then\nfi"],
-            ["else if", "elif [[ $VAR2 ]]; then"],
-            ["for loop", "for i in $VAR; do\ndone"]
+            ["if", "if [[ $foo ]]; then\nfi"],
+            ["else if", "elif [[ $foo ]]; then"],
+            ["for loop", "for i in $foo; do\ndone"],
+            ["range for loop", "for i in {1..5}; do; do\ndone"]
         ]
     },
     "Declaration": {
         "name": "Declaration",
         "snippets": [
-            ["function", "myfunc() {\n}"],
-            ["variable", "var=\"value\""],
-            ["array", "arr=( 0 1 2 )"],
-            ["dictionary", "declare -A dictionaryName"]
+            ["function", "foo() {\n}"],
+            ["variable", "foo=\"bar\""],
+            ["array", "foo=( 0 1 2 )"],
+            ["dictionary", "declare -A foo"]
         ]
     },
     "Conditional": {
         "name": "Conditional",
         "snippets": [
-            ["equal", "[[ $VAR -eq $VAR ]]"],
-            ["not equal", "[[ $VAR -ne $VAR ]]"],
-            ["less than", "[[ $VAR -lt $VAR ]]"],
-            ["greater than", "[[ $VAR -gt $VAR ]]"],
-            ["Regexp", "[[ $VAR =~ $VAR ]]"]
+            ["equal", "[[ $foo -eq $bar ]]"],
+            ["not equal", "[[ $foo -ne $bar ]]"],
+            ["less than", "[[ $foo -lt $bar ]]"],
+            ["greater than", "[[ $foo -gt $bar ]]"],
+            ["Regexp", "[[ $foo =~ $bar ]]"]
+        ]
+    },
+    "Miscellaneous": {
+        "name": "Miscellaneous",
+        "snippets": [
+            ["shell execution", "echo \"Hello, World!\""],
+            ["calculation", "$((foo + 1))"],
+            ["inspect command", "command -V foo"]
         ]
     }
 }
