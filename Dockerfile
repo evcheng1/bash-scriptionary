@@ -1,7 +1,7 @@
 FROM node:10 AS ui-build
 WORKDIR /usr/src/app
 COPY ui/ ./ui/
-RUN cd ui && npm install n -g && npm install && npm run build
+RUN cd ui && npm install && npm run build
 
 FROM node:10 AS server-build
 WORKDIR /root/
